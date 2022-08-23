@@ -538,6 +538,7 @@
                         <button id="openCam" type="button" class="btn btn-secondary float-right">Câmera</button>    
                         <button id="buscar_modulo" type="submit" class="btn btn-primary float-right">Verificar</button>
                     </div>
+                    <div id="camera-teste"></div>
                 </div>
             </form>
         </div>        
@@ -633,7 +634,7 @@
 <script>
     const buttonInitCam = document.querySelector('#openCam');
     const inputValue = document.querySelector('#modulo_id');
-    const camView = document.querySelector('#camera')
+    const camView = document.querySelector('#camera-teste')
 
     const initCam = () =>  {
         Quagga.init({
@@ -641,8 +642,9 @@
                 name: "Live",
                 type: "LiveStream",
                 target: camView,
-                constraints: {                    
-                    height: 150,
+                constraints: {
+                    width:280,                    
+                    height: 100,
                     facingMode: "environment"
                 },
             },
