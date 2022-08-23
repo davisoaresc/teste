@@ -462,10 +462,14 @@
 
         video {
             margin-top: 10px;
+            width: 100%;
         }
 
         canvas { 
-            width: 0;
+            position: absolute;
+            z-index: 1000;
+            right: 0;
+            width: 100%;
         };
 
         #camera {
@@ -642,8 +646,7 @@
                 type: "LiveStream",
                 target: camView,
                 constraints: {
-                    width:280,                    
-                    height: 100,
+                    height: 120,
                     facingMode: "environment"
                 },
             },
