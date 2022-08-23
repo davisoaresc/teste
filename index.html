@@ -680,14 +680,18 @@
         }
 
         const html5QrcodeScanner = new Html5QrcodeScanner(
-            "qr-reader",
-            { 
-                fps: 10,
-                qrbox: {
-                    width:250,
-                    height:100
-                } 
-            });
+                "qr-reader",
+                { 
+                    fps: 10,
+                    qrbox: {
+                        width:250,
+                        height:100
+                    } 
+                }, 
+                { 
+                    facingMode: "environment"
+                }
+            );
         html5QrcodeScanner.render(onScanSuccess);
     });
 
