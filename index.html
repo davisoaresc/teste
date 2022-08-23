@@ -645,8 +645,8 @@
                 name: "Live",
                 type: "LiveStream",
                 target: camView,
-                constraints: {                    
-                    height: 100,
+                constraints: {
+                    height: 120,
                     facingMode: "environment"
                 },
             },
@@ -663,6 +663,15 @@
             Quagga.start();
         });
 
+        Quagga.onProcessed(function (result) {
+            var drawingCtx = Quagga.canvas.ctx.overlay,
+                drawingCanvas = Quagga.canvas.dom.overlay;
+            if (result) {
+                if(result.boxes) {
+                    drawingCtx.clearReacy
+                }
+            }
+        })
     };
 
     buttonInitCam.addEventListener('click', (event) => {
