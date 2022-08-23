@@ -479,18 +479,6 @@
             max-height: 85%;
         }
 
-        video {
-            margin-top: 10px;
-            width: 100%;
-        }
-
-        canvas { 
-            position: absolute;
-            z-index: 1000;
-            right: 0;
-            width: 100%;
-        };
-
         #camera {
             display: flex;
             flex-direction: column;
@@ -655,51 +643,8 @@
 </div>
 
 <script>
-    const buttonInitCam = document.querySelector('#openCam');
-    const inputValue = document.querySelector('#modulo_id');
-    const resultContainer = document.getElementById('qr-reader-results');
+    
 
-    const docReady = (fn) => {
-        if (document.readyState === "complete"
-            || document.readyState === "interactive") {
-            setTimeout(fn, 1);
-        } else {
-            document.addEventListener("DOMContentLoaded", fn);
-        }
-    }
-
-    const initCam = () => docReady(() => {
-        let lastResult, countResults = 0;
-
-        const onScanSuccess = (decodedText, decodedResult) => {
-            if (decodedText !== lastResult) {
-                ++countResults;
-                lastResult = decodedText;
-                inputValue.value = decodedText;
-            }
-        }
-
-        const html5QrcodeScanner = new Html5QrcodeScanner(
-                "qr-reader",
-                { 
-                    fps: 10,
-                    qrbox: {
-                        width:250,
-                        height:100
-                    } 
-                }, 
-                { 
-                    facingMode: "environment"
-                }
-            );
-        html5QrcodeScanner.render(onScanSuccess);
-    });
-
-
-    buttonInitCam.addEventListener('click', (event) => {
-        event.preventDefault();
-        initCam();
-    })
 
 </script>
 
