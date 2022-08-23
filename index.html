@@ -466,7 +466,10 @@
         }
 
         canvas { 
-            width: 0;
+            position: absolute;
+            z-index: 1000;
+            right: 0;
+            width: 100%;
         };
 
         #camera {
@@ -643,7 +646,7 @@
                 target: camView,
                 constraints: {
                     height: 120,
-                    facing: "environment"
+                    facingMode: "environment"
                 },
             },
             decoder: {
