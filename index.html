@@ -466,10 +466,7 @@
         }
 
         canvas { 
-            position: absolute;
-            z-index: 1000;
-            right: 0;
-            width: 100%;
+            width: 0;
         };
 
         #camera {
@@ -543,7 +540,6 @@
                     </div>
                 </div>
             </form>
-            <div id="camera-teste"></div>
         </div>        
         <button id="fundo_modal_close_btn" type="button" class="close"><span>&times;</span></button>
     </div>
@@ -637,7 +633,7 @@
 <script>
     const buttonInitCam = document.querySelector('#openCam');
     const inputValue = document.querySelector('#modulo_id');
-    const camView = document.querySelector('#camera-teste')
+    const camView = document.querySelector('#camera')
 
     const initCam = () =>  {
         Quagga.init({
@@ -645,13 +641,9 @@
                 name: "Live",
                 type: "LiveStream",
                 target: camView,
-                constraints: {
-                    height: 120,
-                    facingMode: "environment"
-                },
             },
             decoder: {
-                readers: ['code_128_reader']
+                readers: ["code_128_reader"]
             },
         },
 
@@ -662,7 +654,6 @@
             }
             Quagga.start();
         });
-
     };
 
     buttonInitCam.addEventListener('click', (event) => {
