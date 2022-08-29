@@ -649,8 +649,9 @@
                 },
             },
             decoder: {
-                readers: ["ean_reader","code_128_reader"],
+                readers: ["code_128_reader","ean_reader","code_39_reader","code_93_reader"],
             },
+            locate: true
         },
         (error) => {
             if (error) {
@@ -667,9 +668,11 @@
     })
 
     Quagga.onDetected((data) => {
-        console.log(data);
-        inputValue.value = data.codeResult.code;
-        Quagga.stop();
+        const code = data.codeResult.code;
+        if (code !== null ) {
+            inputValue.value = data.codeResult.code;
+            Quagga.stop();
+        };
     });
 
 </script>
