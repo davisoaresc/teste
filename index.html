@@ -674,6 +674,7 @@
         if (code !== null ) {
             inputValue.value = data.codeResult.code;
             textCheck.textContent = "Verifique se o número lido é o mesmo do rastreador";
+            document.getElementsByTagName("video")[0].pause();
             Quagga.stop();
         };
     });
