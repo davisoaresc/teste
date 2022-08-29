@@ -462,7 +462,7 @@
 
         #camera > video {
             width: 100%;
-            height: 100vh;
+            height: 40vh;
             object-fit: cover;
             z-index: 9999;
         }
@@ -665,7 +665,6 @@
     Quagga.onDetected((data) => {
         console.log(data);
         inputValue.value = data.codeResult.code;
-        document.getElementsByTagName("video")[0].pause();
         Quagga.stop();
     });
 
