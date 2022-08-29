@@ -644,9 +644,12 @@
                 name: "Live",
                 type: "LiveStream",
                 target: camView,
+                constraints: {
+                    facingMode: "environment"
+                },
             },
             decoder: {
-                readers: ["code_128_reader","ean_reader"]
+                readers: ["ean_reader","code_128_reader"],
             },
         },
         (error) => {
