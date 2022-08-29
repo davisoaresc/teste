@@ -423,6 +423,7 @@
             flex-wrap: wrap;
             align-items: flex-start;
             justify-content: center;
+            margin-top: 10px;
         };
 
         #mapId {
@@ -527,6 +528,7 @@
     <div id="modal_modulo_int" class="fundo_modal_int">     
         <h5 class="mt-3">Digite a sequência de números abaixo do código de barras (IMEI) do rastreador:</h5><br/>
         <div id="camera"></div>
+        <span id="text-check" style="color:#68717a"></span>
         <div>
             <form onsubmit="return callByModule()">
                 <div class="row-imputs">
@@ -636,7 +638,7 @@
     const buttonInitCam = document.querySelector('#openCam');
     const inputValue = document.querySelector('#modulo_id');
     const camView = document.querySelector('#camera')
-
+    const textCheck = document.querySelector('#text-check');
 
     const initCam = () =>  {
         Quagga.init({
@@ -671,6 +673,7 @@
         const code = data.codeResult.code;
         if (code !== null ) {
             inputValue.value = data.codeResult.code;
+            textCheck.textContent = "Verifique se o número lido é o mesmo do rastreador";
             Quagga.stop();
         };
     });
